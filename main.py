@@ -8,10 +8,15 @@ import os
 #import cogs
 from cogs.help_cog import help_cog
 from cogs.music_cog import music_cog
+from cogs.textCommands_cog import textCommands_cog
 TOKEN = "YOUR TOKEN HERE"
 
 #Bot command starting with "/", includes all the Intents and removes the default help command
 client = commands.Bot(command_prefix ="/", intents = discord.Intents.all(),help_command=None)
+
+@client.event
+async def on_ready():
+    await client.change_presence(status=discord.Status.online, activity=discord.Game("Soundwave superior"))
 
 #Loads the cog files
 async def load_extensions():
